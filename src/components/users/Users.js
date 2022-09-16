@@ -1,41 +1,26 @@
- import React, {useState} from 'react';
- import User from "../user/User";
+import React, {useEffect, useState} from 'react';
 
+import User from "../user/User";
 
 const Users = () => {
-    // let [users, setUsers] = useState([])
-    // let [books, setBooks] = useState([])
-    // let [responses,setResponse]=useState([])
-let [pokemons,setPokemons]=useState([])
 
-    // fetch('https://rickandmortyapi.com/api/character')
-    //     .then((response) => response.json())
-    //     .then(value => {
-    //         let character = value.results
-    //         setUsers(character)
-    //     });
+    let [pokemons, setPokemons] = useState([])
 
-    // fetch("https://www.anapioficeandfire.com/api/books?page=1&pageSize=10")
-    //     .then((response) => response.json())
-    //     .then(value => setBooks(value))
 
-    // fetch('https://reqres.in/api/users?page=2')
-    //     .then((response) => response.json())
-    //     .then(value => setResponse(value.data))
+    useEffect(() => {
+        fetch('https://pokeapi.co/api/v2/ability/?limit=20&offset=20')
+            .then((response) => response.json())
+            .then(value => {
+                setPokemons(value.results)
+                let pokemonsList = value.results
+                let pokemonUrl = pokemonsList.map(pokemonItem => pokemonItem.url)
+                console.log(pokemonUrl);
 
-    fetch('https://pokeapi.co/api/v2/pokemon')
-        .then((response) => response.json())
-        .then(value => {
-            let pokemonsList=value.results
-            setPokemons(pokemonsList)
-        })
-
+            })
+    }, [])
     return (
         <div>
-            {/*{users.map(user => (<User user={user} key={user.id}/>))}*/}
-            {/*{books.map(book => (<User user={book} key={book.isbn}/>))}*/}
-            {/*{responses.map(response=>(<User user={response} key={response.id}/>))}*/}
-            {pokemons.map((pokemon,index)=>(<User user={pokemon} key={index}/>))}
+            {pokemons.map((pokemon, index) => (<User user={pokemon} key={index}/>))}
         </div>
     );
 };
