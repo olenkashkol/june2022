@@ -1,10 +1,13 @@
+import {Users} from "./components/users/Users";
+import {UserChoser} from "./components/UserChoser";
 
 function App() {
-  return (
-    <div>
-
-    </div>
-  );
+    return (
+        <div>
+            <Users/>
+            <UserChoser/>
+        </div>
+    );
 }
 
 export default App;
