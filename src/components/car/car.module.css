@@ -1,0 +1,21 @@
+.car {
+    border: 2px solid black;
+    margin: 5px;
+    background: aliceblue;
+    display: flex;
+}
+
+.models {
+    min-width: 200px;
+    padding-left: 15px;
+}
+
+.tools {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tools button {
+    margin: 5px;
+}
