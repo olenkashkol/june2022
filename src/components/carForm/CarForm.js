@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React, {useEffect} from 'react'
 import {joiResolver} from '@hookform/resolvers/joi'
-import {useForm} from "react-hook-form";
+import {useForm} from "react-hook-form"
 
 import css from './carForm.module.css'
 import {carService} from "../../services/car.service";
