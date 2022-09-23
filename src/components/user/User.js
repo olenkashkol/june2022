@@ -1,13 +1,12 @@
-import React from 'react';
+const User = ({user,getPosts}) => {
 
-const User = ({user:{id,name,username,email,address:{city}},getUser,getPost}) => {
+    const {id,name,username,age}=user
+
     return (
         <div>
-            <h2>{id} - {name}   {username}</h2>
-            <p>{email}--{city}</p>
-            <button onClick={()=>{getUser(id)}}>About</button>
-            <button onClick={()=>{getPost(id)}}>Get post</button>
-            <hr/>
+            <div>{id} - {name}   {username}</div>
+            <div>age: {age}</div>
+            <button onClick={()=>getPosts(id)}>Get post</button>
         </div>
     );
 };
