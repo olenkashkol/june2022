@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useLocation, useParams} from "react-router-dom";
+
 import {allService} from "../../services/all.service";
 
 const AlbumsPageDetails = () => {
@@ -8,7 +9,6 @@ const AlbumsPageDetails = () => {
 
     const [album, setAlbum] = useState({})
 
-
     useEffect(() => {
         if (!state) {
             allService.getAlbumById(id).then(({data}) => setAlbum(data))
@@ -16,7 +16,6 @@ const AlbumsPageDetails = () => {
             setAlbum(state)
         }
         }, [id,state])
-
 
         return (
             <div>
